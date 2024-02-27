@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Pokémon VS Palworld</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body id="app">
+    <header>
+        <h1>Palworld VS Pokemon</h1>
+    </header>
+    <div :style="{display: toggle}" class="users">
+        <div class="stat_enemy">
+            <h2>{{enemy.name}}</h2>
+            <img :style="{opacity: triche_pal}" :class="winner == 'Player' ? 'pal' : ''" src="asset/pixel_relaxaurus.gif" alt="sprite relaxaurus">
+            <label for="file">HP : </label>
+            <progress max="100" :value="enemy.vie"></progress>
+        </div>
+        <hr />
+        <div class="stat_player">
+            <h2>{{player.name}}</h2>
+            <img :style="{opacity: triche}" :class="winner == 'Enemy' ? 'pika' : ''" src="asset/pixel_pika.gif" alt="sprite pikachu">
+            <label for="file">HP : </label>
+            <progress max="100" :value="player.vie"></progress>
+        </div>
+    </div>
+    <div class="conteneur">
+
+        <div v-if="!gameover" class="panel">
+            <input id="attaque" class="btn-spell"  type="button" value="Attaquer" @click="attackPlayer">
+            
+            <input v-if="!tour()" :disabled= tour() id="spe-attaque" class="btn-spell" type="button" value="Attaque spéciale" @click="speAttackPlayer">
+
+            <input v-else="tour()" :disabled= tour() id="spe-attaque2" class="btn-spell" type="button" value="Attaque spéciale" @click="speAttackPlayer">
+            
+        </div>
+        <div v-if="!gameover" class="panel"> 
+            <input id="heal" class="btn-spell" type="button" value="Soin" @click="healPlayer">
+                
+            
+            <input id="escape" class="btn-spell" type="button" value="Fuite" @click="giveUp">
+                
+        </div>
+        <input class="btn-spell" @click="restart()" :style="gameover ? '' : 'display:none'" type="button" value="Recommencer">
+
+        <div v-if="winner == 'Player' && gameover">
+            <h2>The Winner is :</h2>
+            <img src="asset/pixel_pika.gif" alt="sprite pikachu">
+        </div>
+        <div v-if="winner == 'Enemy' && gameover ">
+            <h2>The Winner is :</h2>
+            <img src="asset/pixel_relaxaurus.gif" alt="sprite pal">
+        </div>
+        
+
+    
+</div>
+
+    <hr />
+
+    <!-- script pour contacter VUE -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

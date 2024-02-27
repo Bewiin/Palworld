@@ -1,0 +1,183 @@
+@font-face {
+  font-family: 'GameBoy';
+  src: url(Early_GameBoy.ttf);
+}
+
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+    color: white;
+    }
+body{
+    overflow-x: hidden;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(asset/back1.png);
+    background-size: cover;
+    
+  }
+  h2{
+    font-family: 'GameBoy';
+  }
+
+  header{
+    font-family: 'GameBoy';
+    width: 100vw;
+    text-align: center;
+  }
+  img{
+    height: 20vw;
+    width: 20vw;
+    
+  }
+
+  .stat_enemy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+  .stat_player{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  .users{
+    display: flex;
+    
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+  
+    width: 250px;
+    height: 20px;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  progress[value]::-webkit-progress-value {
+    background-color:pink;
+    border: 0.5px solid grey;
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
+  .panel{
+    height: 20%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .btn-spell{
+    color: rgb(0, 0, 0);
+    border: 1px solid white;
+    border-radius: 1em;
+    height: 5em;
+    width: 20em;
+  }
+  
+  .btn-spell:active{
+    border: 2px solid black;
+  }
+  .btn-spell:hover{
+    transform: scale(1.2);
+  }
+  .conteneur{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+  }
+  #attaque{
+    background-color: rgb(255, 255, 76);
+  }
+  #spe-attaque{
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: test;
+  }
+  #spe-attaque2{
+    background-color: grey;
+  }
+  
+  #heal{
+    background-color: rgb(77, 228, 7);
+  }
+  #escape{
+    
+  }
+  .pika{
+    position: relative;
+    animation-name: glissement;
+    animation-duration: 5s;
+  }
+  .pal{
+    position: relative;
+    animation-name: glisse;
+    animation-duration: 5s;
+  }
+  @keyframes animate {
+    0%{
+      background-image: linear-gradient(0.25turn, yellow 15%, orangered 70%, rgb(255, 72, 0) 15%);
+    }
+    100%{
+      background-image: linear-gradient(0.25turn, rgb(255, 72, 0) 15%, orangered 15%, yellow 15%)
+    }
+  }
+  @keyframes test {
+    0%{
+      background-color: blue;
+    }
+    25%{
+      background-color: purple;
+    }
+    50%{
+      background-color: red;
+    }
+    75%{
+      background-color: purple;
+    }
+    100%{
+      background-color: blue;
+    }
+  }
+  @keyframes glissement {
+    0%{
+      transform: translateX(0%);
+    }
+    50%{
+      transform: translateX(70%);
+    }
+    100%{
+      transform: translateX(180%);
+      
+    }
+  }
+  @keyframes glisse {
+    0%{
+      transform: translateX(0%);
+    }
+    50%{
+      transform: translateX(-70%);
+    }
+    100%{
+      transform: translateX(-180%);
+    }
+  }
